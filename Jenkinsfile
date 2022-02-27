@@ -29,9 +29,9 @@ pipeline{
       stage("build"){
             steps{
                 echo "this is tested"
-                sh '
+                sh '''
                 mvn clean install
-                '
+                '''
             }
         }  
         stage("artifactory push"){
