@@ -19,6 +19,7 @@ pipeline{
         stage("test"){
             steps{
                 echo "this is tested"
+                sh 'mvn clean cobertura:cobertura -Dcobertura.report.formats=xml'
             }
         }
          stage("QA"){
