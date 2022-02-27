@@ -1,5 +1,9 @@
 pipeline{
     agent any
+    tools {
+        jdk 'java_home'
+        mvn 'maven_home'
+    }
     stages{
         stage("checkout"){
             steps{
@@ -25,6 +29,9 @@ pipeline{
       stage("build"){
             steps{
                 echo "this is tested"
+                sh '
+                mvn clean install
+                '
             }
         }  
         stage("artifactory push"){
